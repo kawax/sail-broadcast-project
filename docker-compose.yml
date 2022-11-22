@@ -47,6 +47,8 @@ services:
         environment:
             WWWUSER: '${WWWUSER}'
             LARAVEL_SAIL: 1
+        ports:
+            - '6001:6001'
         volumes:
             - '.:/var/www/html:cached'
         command: php artisan websockets:serve
