@@ -42,6 +42,20 @@ services:
         depends_on:
             - mysql
             - redis
+    websockets:
+        image: sail-8.1/app
+        environment:
+            WWWUSER: '${WWWUSER}'
+            LARAVEL_SAIL: 1
+        volumes:
+            - '.:/var/www/html:cached'
+        command: php artisan websockets:serve
+        restart: always
+        networks:
+            - sail
+        depends_on:
+            - mysql
+            - redis
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
