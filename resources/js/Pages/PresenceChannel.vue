@@ -10,7 +10,7 @@ const items = ref([])
 const user = usePage().props.value.auth.user
 
 const form = useForm({
-    chat: 'test',
+    chat: 'test presence',
 })
 
 const submit = () => {

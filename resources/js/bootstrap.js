@@ -27,7 +27,7 @@ window.Echo = new Echo({
     broadcaster: 'pusher',
     key: 'test',
     wsHost: window.location.hostname,
-    wsPort: 6001,
+    wsPort: import.meta.env.VITE_PUSHER_PORT,
     forceTLS: false,
     disableStats: true,
 });
