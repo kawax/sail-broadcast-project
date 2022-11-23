@@ -28,13 +28,14 @@ services:
             - meilisearch
             - mailhog
             - selenium
+            - websockets
     horizon:
         image: sail-8.1/app
         environment:
             WWWUSER: '${WWWUSER}'
             LARAVEL_SAIL: 1
         volumes:
-            - '.:/var/www/html:cached'
+            - '.:/var/www/html'
         command: php artisan horizon
         restart: always
         networks:
@@ -42,15 +43,16 @@ services:
         depends_on:
             - mysql
             - redis
+            - websockets
     websockets:
         image: sail-8.1/app
         environment:
             WWWUSER: '${WWWUSER}'
             LARAVEL_SAIL: 1
         ports:
-            - '6001:6001'
+            - '${PUSHER_PORT:-6001}:${PUSHER_PORT:-6001}'
         volumes:
-            - '.:/var/www/html:cached'
+            - '.:/var/www/html'
         command: php artisan websockets:serve
         restart: always
         networks:
