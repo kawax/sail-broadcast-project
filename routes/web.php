@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PresenceController;
+use App\Http\Controllers\PrivateController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +39,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::post('/presence/chat', PresenceController::class)->name('presence.create');
+    Route::post('/private/chat', PrivateController::class)->name('private.create');
 });
 
 require __DIR__.'/auth.php';
