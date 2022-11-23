@@ -28,7 +28,7 @@ const submit = () => {
 Echo.join('presence').here((users) => {
     items.value.unshift({
         'name': 'システム',
-        'chat': '現在の参加者数 : '+users.length,
+        'chat': '現在の参加者 : ' + _.map(users, 'name').join(', '),
         'datetime': '',
     })
     console.log(users)
