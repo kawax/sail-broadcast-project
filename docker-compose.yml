@@ -28,7 +28,6 @@ services:
             - meilisearch
             - mailhog
             - selenium
-            - websockets
     horizon:
         image: sail-8.1/app
         environment:
@@ -43,7 +42,6 @@ services:
         depends_on:
             - mysql
             - redis
-            - websockets
     websockets:
         image: sail-8.1/app
         environment:
