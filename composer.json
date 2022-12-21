@@ -13,7 +13,7 @@
         "laravel/horizon": "^5.10",
         "laravel/sanctum": "^2.8",
         "laravel/tinker": "^2.7",
-        "pusher/pusher-php-server": "7.0.2",
+        "pusher/pusher-php-server": "^7.2.2",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
